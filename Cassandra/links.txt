@@ -1,0 +1,3 @@
+
+#docs for cassandra
+https://docs.datastax.com/en/developer/python-driver/3.24/getting_started/
