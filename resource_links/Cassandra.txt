@@ -1,0 +1,10 @@
+
+ Open this link for DataStax Cassandra
+http://surl.li/bwzmt
+
+---Keys---
+{
+  "clientID": "ISKnyauqmnPXtIfZunBZhCFy"
+  "clientSecret": "ZwWn.Yos_jg2Ti2MhTF8O.A1ZSLIHgy0pogbff.rO5w-JElletBuSZsHmIOW,08X1EY4kSPvr,9i1DNMEFGpAQQWo7tYbeNNBtOXO8ieyPR7alTgRzPdec3c8ZUBQJMP"
+  "token": "AstraCS:ISKnyauqmnPXtIfZunBZhCFy:d581b777567cd44f5658d63a1257c18cdc16b066ea0041ba3c5c560307c83b4e"
+}
