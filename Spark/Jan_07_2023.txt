@@ -70,5 +70,19 @@ root
  |-- MANAGER_ID: string (nullable = true)
  |-- LOCATION_ID: integer (nullable = true)
 
->>> 
+>>> #creating dataframe for employees dataset
+df3=spark.read.option("header",True).option("inferSchema",True).csv("/input_data/employees.csv")
+>>> df3.printSchema()
+root
+ |-- EMPLOYEE_ID: integer (nullable = true)
+ |-- FIRST_NAME: string (nullable = true)
+ |-- LAST_NAME: string (nullable = true)
+ |-- EMAIL: string (nullable = true)
+ |-- PHONE_NUMBER: string (nullable = true)
+ |-- HIRE_DATE: string (nullable = true)
+ |-- JOB_ID: string (nullable = true)
+ |-- SALARY: integer (nullable = true)
+ |-- COMMISSION_PCT: string (nullable = true)
+ |-- MANAGER_ID: string (nullable = true)
+ |-- DEPARTMENT_ID: integer (nullable = true)
  
