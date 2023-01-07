@@ -86,3 +86,4 @@ root
  |-- MANAGER_ID: string (nullable = true)
  |-- DEPARTMENT_ID: integer (nullable = true)
  
+>>>df3.show()
