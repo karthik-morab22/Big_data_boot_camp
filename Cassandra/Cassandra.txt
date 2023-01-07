@@ -1,0 +1,6 @@
+#ERROR 
+
+Exception occured during keyspace creation:  Error from server: code=2100 [Unauthorized] message="Missing correct permission on employee_management.: Keyspace management is currently only supported at https://astra.datastax.com/org/e8885d7a-9bb2-41bd-b32d-06e50a93e8ac/database/d66d61cd-441a-4bce-bffa-11d0b9f634b1"
+
+
+generate admin user token from organization settings.
