@@ -251,3 +251,18 @@ only showing top 20 rows
 |   110|     John|
 +------+---------+
 only showing top 20 rows
+
+>>> df3.select(count(df3.EMPLOYEE_ID)).show()
++------------------+
+|count(EMPLOYEE_ID)|
++------------------+
+|                50|
++------------------+
+
+
+>>> df3.select(count("*")).show()
++--------+
+|count(1)|
++--------+
+|      50|
++--------+
