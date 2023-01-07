@@ -4,3 +4,16 @@ Exception occured during keyspace creation:  Error from server: code=2100 [Unaut
 
 
 generate admin user token from organization settings.
+
+
+Admin creds:
+
+Client id:
+RJIYztYmZUgHLMbmdJhJqwYn
+
+Client secret:
+o0fjG-maNHlhZEX5F3,o1QS6uXU7THH4_X4tciEtE2h7ITZ84kGy,IlXF2zFjv97a+kn,sIG-YZjxP8OYbXXPfKZJP0KoXs4ZbRcxzzchafmoWpdzwsRX1babicw6a6a
+
+Token:
+AstraCS:RJIYztYmZUgHLMbmdJhJqwYn:420f0aae0e0e348a9e0cb76147033def9c7b4efe3ceb9233be8d6c4cb738546e
+
