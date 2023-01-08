@@ -949,3 +949,93 @@ TypeError: 'Column' object is not callable
 |       102|       Lex|  De Haan|
 |       201|   Michael|Hartstein|
 +----------+----------+---------+
+
+
+>>> spark.sql("select employee_id,first_name,department_id, rank() over (partition by department_id order by salary desc) as rank_sal from employee ").show()
++-----------+----------+-------------+--------+
+|employee_id|first_name|department_id|rank_sal|
++-----------+----------+-------------+--------+
+|        200|  Jennifer|           10|       1|
+|        201|   Michael|           20|       1|
+|        202|       Pat|           20|       2|
+|        114|       Den|           30|       1|
+|        115| Alexander|           30|       2|
+|        116|    Shelli|           30|       3|
+|        117|     Sigal|           30|       4|
+|        118|       Guy|           30|       5|
+|        119|     Karen|           30|       6|
+|        203|     Susan|           40|       1|
+|        121|      Adam|           50|       1|
+|        120|   Matthew|           50|       2|
+|        122|     Payam|           50|       3|
+|        123|    Shanta|           50|       4|
+|        124|     Kevin|           50|       5|
+|        137|    Renske|           50|       6|
+|        129|     Laura|           50|       7|
+|        133|     Jason|           50|       7|
+|        125|     Julia|           50|       9|
+|        138|   Stephen|           50|       9|
++-----------+----------+-------------+--------+
+only showing top 20 rows
+
+>>> deptDf=spark.read.option("header",True).option("inferSchema",True).csv("/data/departments.csv")
+>>> deptDf.show()
++-------------+--------------------+----------+-----------+
+|DEPARTMENT_ID|     DEPARTMENT_NAME|MANAGER_ID|LOCATION_ID|
++-------------+--------------------+----------+-----------+
+|           10|      Administration|       200|       1700|
+|           20|           Marketing|       201|       1800|
+|           30|          Purchasing|       114|       1700|
+|           40|     Human Resources|       203|       2400|
+|           50|            Shipping|       121|       1500|
+|           60|                  IT|       103|       1400|
+|           70|    Public Relations|       204|       2700|
+|           80|               Sales|       145|       2500|
+|           90|           Executive|       100|       1700|
+|          100|             Finance|       108|       1700|
+|          110|          Accounting|       205|       1700|
+|          120|            Treasury|        - |       1700|
+|          130|       Corporate Tax|        - |       1700|
+|          140|  Control And Credit|        - |       1700|
+|          150|Shareholder Services|        - |       1700|
+|          160|            Benefits|        - |       1700|
+|          170|       Manufacturing|        - |       1700|
+|          180|        Construction|        - |       1700|
+|          190|         Contracting|        - |       1700|
+|          200|          Operations|        - |       1700|
++-------------+--------------------+----------+-----------+
+only showing top 20 rows
+
+>>> deptDf.show(10)
++-------------+----------------+----------+-----------+
+|DEPARTMENT_ID| DEPARTMENT_NAME|MANAGER_ID|LOCATION_ID|
++-------------+----------------+----------+-----------+
+|           10|  Administration|       200|       1700|
+|           20|       Marketing|       201|       1800|
+|           30|      Purchasing|       114|       1700|
+|           40| Human Resources|       203|       2400|
+|           50|        Shipping|       121|       1500|
+|           60|              IT|       103|       1400|
+|           70|Public Relations|       204|       2700|
+|           80|           Sales|       145|       2500|
+|           90|       Executive|       100|       1700|
+|          100|         Finance|       108|       1700|
++-------------+----------------+----------+-----------+
+only showing top 10 rows
+
+>>> empDf.show(10)
++-----------+----------+---------+--------+------------+---------+----------+------+--------------+----------+-------------+
+|EMPLOYEE_ID|FIRST_NAME|LAST_NAME|   EMAIL|PHONE_NUMBER|HIRE_DATE|    JOB_ID|SALARY|COMMISSION_PCT|MANAGER_ID|DEPARTMENT_ID|
++-----------+----------+---------+--------+------------+---------+----------+------+--------------+----------+-------------+
+|        198|    Donald| OConnell|DOCONNEL|650.507.9833|21-JUN-07|  SH_CLERK|  2600|            - |       124|           50|
+|        199|   Douglas|    Grant|  DGRANT|650.507.9844|13-JAN-08|  SH_CLERK|  2600|            - |       124|           50|
+|        200|  Jennifer|   Whalen| JWHALEN|515.123.4444|17-SEP-03|   AD_ASST|  4400|            - |       101|           10|
+|        201|   Michael|Hartstein|MHARTSTE|515.123.5555|17-FEB-04|    MK_MAN| 13000|            - |       100|           20|
+|        202|       Pat|      Fay|    PFAY|603.123.6666|17-AUG-05|    MK_REP|  6000|            - |       201|           20|
+|        203|     Susan|   Mavris| SMAVRIS|515.123.7777|07-JUN-02|    HR_REP|  6500|            - |       101|           40|
+|        204|   Hermann|     Baer|   HBAER|515.123.8888|07-JUN-02|    PR_REP| 10000|            - |       101|           70|
+|        205|   Shelley|  Higgins|SHIGGINS|515.123.8080|07-JUN-02|    AC_MGR| 12008|            - |       101|          110|
+|        206|   William|    Gietz|  WGIETZ|515.123.8181|07-JUN-02|AC_ACCOUNT|  8300|            - |       205|          110|
+|        100|    Steven|     King|   SKING|515.123.4567|17-JUN-03|   AD_PRES| 24000|            - |        - |           90|
++-----------+----------+---------+--------+------------+---------+----------+------+--------------+----------+-------------+
+only showing top 10 rows
